@@ -446,10 +446,13 @@ pub struct QuickSelectArguments {
     pub patterns: Vec<String>,
     #[dynamic(default)]
     pub action: Option<Box<KeyAssignment>>,
+    /// Call `action` after paste is performed (capital selection)
+    #[dynamic(default = "default_true")]
+    pub paste_performs_action: bool,
     /// Label to use in place of "copy" when `action` is set
     #[dynamic(default)]
     pub label: String,
-    /// How man lines before and how many lines after the viewport to
+    /// How many lines before and how many lines after the viewport to
     /// search to produce the quickselect results
     pub scope_lines: Option<usize>,
 }
